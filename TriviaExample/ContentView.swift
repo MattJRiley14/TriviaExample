@@ -29,8 +29,10 @@ struct ContentView: View {
                 4
             ],
             "correctAnswer": 0
-        ],
+        ]
     ]
+    
+    @State private var questionIndex = 0
     
     var body: some View {
         VStack {
