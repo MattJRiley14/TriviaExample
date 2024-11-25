@@ -54,32 +54,34 @@ struct ContentView: View {
 
     @State private var questionIndex = 0
     
+    @State private var message = "What is 1 + 1?"
+    
     var body: some View {
         VStack {
             Text("TRIVIA GAME")
 
-            Text(questions[questionIndex])
+            Text(message)
 
             Button {
-                print("Hello")
+                checkAnswer(ans: 0)
             } label: {
                 Text(answers[questionIndex][0][0])
             }
 
             Button {
-                print("Hello")
+                checkAnswer(ans: 1)
             } label: {
                 Text(answers[questionIndex][1][0])
             }
 
             Button {
-                print("Hello")
+                checkAnswer(ans: 2)
             } label: {
                 Text(answers[questionIndex][2][0])
             }
 
             Button {
-                print("Hello")
+                checkAnswer(ans: 3)
             } label: {
                 Text(answers[questionIndex][3][0])
             }
@@ -95,6 +97,15 @@ struct ContentView: View {
     
     func nextQuestion() {
         questionIndex += 1
+        message = questions[questionIndex]
+    }
+    
+    func checkAnswer(ans: Int){
+        if (answers[questionIndex][ans][1] == "Correct") {
+            message = "CORRECT"
+        } else {
+            message = "WRONG"
+        }
     }
 }
 
