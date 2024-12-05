@@ -51,14 +51,27 @@ struct ContentView: View {
             ["2", "Wrong"]
         ]
     ]
-
+    
     @State private var questionIndex = 0
     
     @State private var message = "What is 1 + 1?"
-    
+        
+    @State private var ques = [
+        [
+            "question": "First Question",
+            "answer": "First Answer"
+        ],
+        [
+            "question": "Second Question",
+            "answer": "Second Answer"
+        ],
+    ]
+
     var body: some View {
         VStack {
-            Text("TRIVIA GAME")
+            ques[0]["question"] != nil ? Text(ques[0]["question"]!) : Text("Hello")
+            
+            Text("MATH TRIVIA GAME")
 
             Text(message)
 
@@ -96,8 +109,12 @@ struct ContentView: View {
     }
     
     func nextQuestion() {
-        questionIndex += 1
-        message = questions[questionIndex]
+        if (questionIndex < questions.count - 1){
+            questionIndex += 1
+            message = questions[questionIndex]
+        } else {
+            message = "Game Over. Thanks for playing!"
+        }
     }
     
     func checkAnswer(ans: Int){
@@ -107,6 +124,7 @@ struct ContentView: View {
             message = "WRONG"
         }
     }
+        
 }
 
 #Preview {
