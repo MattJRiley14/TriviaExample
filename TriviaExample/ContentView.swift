@@ -68,8 +68,9 @@ struct ContentView: View {
     ]
 
     var body: some View {
+        
         VStack {
-            ques[0]["question"] != nil ? Text(ques[0]["question"]!) : Text("Hello")
+            Text(ques[0]["question"]!)
             
             Text("MATH TRIVIA GAME")
 
@@ -124,7 +125,6 @@ struct ContentView: View {
             message = "WRONG"
         }
     }
-        
 }
 
 #Preview {
