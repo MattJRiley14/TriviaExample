@@ -29,6 +29,15 @@ struct ContentView: View {
         ]
     ]
     
+    let answersDictionary = [
+        [
+            "answer": ["1", "2", "3", "4"]
+        ],
+        [
+            "answer": ["-2", "-1", "0", "2"]
+        ]
+    ]
+    
     @State private var questionIndex = 0
     
     @State private var message = "What is 1 + 1?"
@@ -56,7 +65,8 @@ struct ContentView: View {
             Button {
                 checkAnswer(ans: 0)
             } label: {
-                Text(answers[questionIndex][0][0])
+//                Text(answers[questionIndex][0][0])
+                Text(displayAnswer(index: 0)[0])
             }
 
             Button {
@@ -101,6 +111,10 @@ struct ContentView: View {
         } else {
             message = "WRONG"
         }
+    }
+    
+    func displayAnswer(index: Int) -> [String] {
+        return answersDictionary[index]["answer"]!
     }
 }
 
