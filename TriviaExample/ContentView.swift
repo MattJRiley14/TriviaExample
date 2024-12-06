@@ -66,6 +66,8 @@ struct ContentView: View {
                 checkAnswer(ans: 0)
             } label: {
 //                Text(answers[questionIndex][0][0])
+                
+                // Using the displayAnswer function to get a String value by accessing an index from the array that is returned from the function
                 Text(displayAnswer(index: 0)[0])
             }
 
@@ -113,6 +115,7 @@ struct ContentView: View {
         }
     }
     
+    // Function returns an array of Strings by force unwrapping (Using !) the valued paired with the ANSWER key in the nested array in the answersDictionary array variable
     func displayAnswer(index: Int) -> [String] {
         return answersDictionary[index]["answer"]!
     }
